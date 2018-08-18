@@ -1,33 +1,4 @@
-$primary-color:#333;
-$secondary-color:#eece1a;
-$show-home-image:true;
-$home-image:url(../img/background.jpg);
-$background-opacity:0.7;
-@mixin easeout {
-    transition: all 0.7s ease-out;
-}
-@mixin background{
-    @if $show-home-image{
-            &#bg-img{
-                background: $home-image;
-                background-size: cover;
-                background-attachment: fixed;
-            
-            .overlay{
-                position: absolute;
-                top:0;
-                right: 0;
-                
-                height: 100%;
-                width: 100%;
-                z-index: -1;
-                background-color: rgba($primary-color,$background-opacity);
-            }
-                
-               
-            }
-    }
-}
+@import 'config';
 
  *{
 box-sizing: border-box;

@@ -17,13 +17,13 @@
     }
   //make x with menu lines
     &.close{
-        transform: rotate(180deg);   
+        transform: rotate(180deg) ; 
     
       .btn-line  {
           //1st line rotate 45deg
             &:nth-child(1)
             {
-             transform: rotate(45deg) translate(5px,5px);
+             transform: rotate(45deg) translate(5px,5px) ;
             }
           //2nd line hide
           &:nth-child(2){
@@ -33,12 +33,101 @@
           //3rd line rotate -45deg
           &:nth-child(3)
           {
-           transform: rotate(-45deg) translate(7px,-6px);
+           transform: rotate(-45deg) translate(7px,-6px) ;
           }
       } 
     
     
     
+    }
+}
+
+//Menu overlay
+.menu{
+   position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.9;
+  visibility: hidden;
+   
+  &.show {
+      visibility:visible;
+    
+}
+
+&-branding,
+&-nav{
+    display: flex;
+    flex-flow: column wrap;
+    float: left;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+&-nav{
+    margin: 0;
+    padding: 0;
+    background: darken($primary-color, 5);
+    list-style: none;
+    transform: translate3d(0,-100%,0);
+   @include easeout;
+    
+   &.show{
+            transform: translate3d(0,0,0);
+    }
+}
+
+&-branding{
+    margin: 0;
+    padding: 0;
+    background: darken($primary-color,5);
+    transform:translate3d(0,100%,0);
+    @include easeout;
+
+    &.show{
+        transform:translate3d(0,0,0); 
+    }
+    .portrait{
+        width: 250px;
+        height: 250px;
+        background: url('../img/Dibya.jpg');
+        border-radius: 60%;
+        border: solid 3px $secondary-color;
+    }
+}
+    
+    .nav-items{
+        transform: translate3d(600px,0,0);
+        @include easeout;
+
+        &.show{
+            transform: translate3d(0,0,0);
+        }
+    }
+
+        .nav-link{
+            display: inline-block;
+            position: relative;
+            font-size: 30px;
+            color: #fff;
+            font-weight: 300;
+            padding: 1rem ;
+
+            &:hover{
+                color: $secondary-color;
+            }
+
+
+        }
+    }
+  
+
+//delay each nav-item by 0.1s
+@for $x from 1 through 5{
+    .nav-items:nth-child(#{$x}){
+        transition-delay: $x * 0.1s;
     }
 }
 

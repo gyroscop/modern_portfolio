@@ -11,7 +11,7 @@
     .btn-line{
         width: 28px;
         height: 3px;
-        background: #fff;
+        background:set-text-color($primary-color);
         margin: 0 0 5px 0;
         @include easeout;
     }
@@ -70,6 +70,7 @@
     margin: 0;
     padding: 0;
     background: darken($primary-color, 5);
+    
     list-style: none;
     transform: translate3d(0,-100%,0);
    @include easeout;
@@ -111,7 +112,7 @@
             display: inline-block;
             position: relative;
             font-size: 30px;
-            color: #fff;
+            color:set-text-color($primary-color);
             font-weight: 300;
             padding: 1rem ;
 

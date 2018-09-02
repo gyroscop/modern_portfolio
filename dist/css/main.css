@@ -39,7 +39,7 @@
   .menu-nav {
     margin: 0;
     padding: 0;
-    background: #262626;
+    background: #373737;
     list-style: none;
     transform: translate3d(0, -100%, 0);
     transition: all 0.7s ease-out; }
@@ -48,7 +48,7 @@
   .menu-branding {
     margin: 0;
     padding: 0;
-    background: #262626;
+    background: #373737;
     transform: translate3d(0, 100%, 0);
     transition: all 0.7s ease-out; }
     .menu-branding.show {
@@ -89,11 +89,54 @@
 .nav-items:nth-child(5) {
   transition-delay: 0.5s; }
 
+@media screen and (min-width: 1179px) {
+  .projects {
+    grid-template-columns: repeat(4, 1fr); } }
+
+@media screen and (min-width: 769px) and (max-width: 1178px) {
+  .projects {
+    grid-template-columns: repeat(3, 1fr); } }
+
+@media screen and (max-width: 768px) {
+  main {
+    align-items: center;
+    text-align: center; }
+    main .lg-heading {
+      line-height: 1;
+      margin-bottom: 1rem; }
+    main .sm-heading {
+      align-items: stretch; }
+  ul.menu-nav, div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0; }
+    ul.menu-nav.show, div.menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+  .menu-nav {
+    height: 75vp;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 24px; }
+  .menu-branding {
+    height: 25vh;
+    transform: translate3d(100%, 0, 0); }
+    .menu-branding .portrait {
+      background: url("../img/Dibya-small.jpg");
+      width: 150px;
+      height: 150px; }
+  .projects {
+    grid-template-columns: repeat(2, 1fr); } }
+
+@media screen and (max-width: 500px) {
+  main#home h1 {
+    margin-top: 10vh; }
+  .projects {
+    grid-template-columns: 1fr; } }
+
 * {
   box-sizing: border-box; }
 
 body {
-  background: #333;
+  background: #444;
   color: #fff;
   height: 100%;
   margin: 0;
@@ -110,7 +153,7 @@ body {
       height: 100%;
       width: 100%;
       z-index: -1;
-      background-color: rgba(51, 51, 51, 0.7); }
+      background-color: rgba(68, 68, 68, 0.7); }
 
 h1, h2, h3 {
   margin: 0;
@@ -119,8 +162,8 @@ h1, h2, h3 {
     font-size: 6rem; }
   h1.sm-heading, h2.sm-heading, h3.sm-heading {
     margin-bottom: 2rem;
-    padding: 0.2rem 1rem;
-    background: rgba(56, 56, 56, 0.5); }
+    margin-left: 0;
+    padding: 0; }
 
 a {
   color: #fff;
@@ -134,16 +177,99 @@ header {
 .text-secondary {
   color: #eece1a; }
 
-#home {
-  padding: 10rem;
-  overflow: hidden;
+main {
+  padding: 2rem;
+  min-height: calc(100vh-60px);
   /*h1{
         margin-top: 20vh;
     }*/ }
-  #home .icons {
+  main#home {
+    padding-top: 200px; }
+  main .icons {
     margin-top: 1rem; }
-    #home .icons a {
+    main .icons a {
+      color: #fff;
       padding: 0.4rem; }
-      #home .icons a:hover {
+      main .icons a:hover {
         color: #eece1a;
         transition: all 0.7s ease-out; }
+
+.about-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas: 'bioimage bio bio' 'job1 job2 job3';
+  grid-template-columns: repeat(3, 1fr); }
+  .about-info .bio-image {
+    grid-area: bioimage;
+    margin: auto;
+    border-radius: 55%;
+    border: #eece1a 3px solid; }
+  .about-info .bio {
+    grid-area: bio;
+    font-size: 1.5rem; }
+  .about-info .job-1 {
+    grid-area: job1; }
+  .about-info .job-2 {
+    grid-area: job2; }
+  .about-info .job-3 {
+    grid-area: job3; }
+  .about-info .job {
+    background: #515151;
+    padding: 0.5rem;
+    border-bottom: #eece1a 3px solid;
+    font-size: 1.5rem; }
+
+.projects {
+  display: grid;
+  grid-gap: 20px; }
+  .projects img {
+    width: 100%;
+    border: 3px #fff solid;
+    display: -ms-inline-grid; }
+    .projects img:hover {
+      border-color: #eece1a;
+      transition: all 0.7s ease-out; }
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem; }
+  .boxes .box {
+    font-size: 1.5rem;
+    border: 3px solid #fff;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 3rem;
+    transition: all 0.7s ease-out; }
+    .boxes .box:hover {
+      padding: 1.5rem 2.5rem;
+      background: #eece1a;
+      color: #000;
+      opacity: 0.6; }
+      .boxes .box:hover span {
+        color: #000; }
+
+.btn, .btn-dark, .btn-light {
+  display: block;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.3rem;
+  border: 3px solid #fff; }
+  .btn:hover, .btn-dark:hover, .btn-light:hover {
+    background: #4d4d4d;
+    color: #eece1a;
+    border-color: #eece1a;
+    transition: all 0.7s ease-out; }
+
+.btn-dark {
+  float: right; }
+
+.btn-light {
+  float: left; }
+
+#main-footer {
+  height: 60px;
+  text-align: center;
+  padding: 1rem;
+  background: #373737;
+  font-size: 1.5rem; }
